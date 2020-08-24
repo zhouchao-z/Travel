@@ -1,15 +1,15 @@
 <template>
   <div class="home">
-    我是home页面
+    <index-header/>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-
+import IndexHeader from '@/components/Header';
 export default {
   name: 'Home',
   components: {
+    IndexHeader
   }
 }
 </script>

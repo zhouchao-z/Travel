@@ -46,6 +46,9 @@ export default {
       .place {
         vertical-align: top;
       }
+      .icon-search {
+        font-size: 0.4rem;
+      }
     }
     .header-right {
       display: flex;

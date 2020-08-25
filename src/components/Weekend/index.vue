@@ -1,10 +1,10 @@
 <template>
-  <div class="recommend">
+  <div class="weekend">
     <div class="title">周末去哪儿玩</div>
     <ul>
       <li 
         class="item"
-        v-for="item of recommend"
+        v-for="item of weekend"
         :key="item.id"
       >
         <div class="item-img-wrapper">
@@ -24,7 +24,7 @@ export default {
   name: 'IndexWeekend',
   data () {
     return {
-      recommend: [
+      weekend: [
         {
           id: '0001',
           imgSrc: "http://img1.qunarzz.com/sight/source/1505/fb/302620ed8350f8.jpg_r_640x214_25a07cb4.jpg" ,

@@ -11,6 +11,7 @@
             <img :src="item.imgSrc" class="icon-img-content">
           </div>
           <p class="icon-desc"> {{ item.desc }}</p>
+
         </div>
       </div>
     </swiper-slide>

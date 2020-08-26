@@ -1,16 +1,18 @@
 <template>
   <div class="header">
-    <div class="header-left">
+    <!-- <div class="header-left">
       <span class="iconfont icon-leftarrow"></span>
-    </div>
+    </div> -->
     <div class="header-input">
       <span class="iconfont icon-search"></span>
       <span class="place">输入城市/景点/游玩主题</span>
     </div>
-    <div class="header-right">
-      <span>城市</span>
-      <span class="iconfont icon-belowarrow"></span>
-    </div>
+    <router-link to="/city">
+      <div class="header-right">
+        <span>城市</span>
+        <span class="iconfont icon-belowarrow"></span>
+      </div>
+    </router-link>
   </div>
 </template>
 
@@ -24,7 +26,7 @@ export default {
   @import '~styles/varibel.scss';
   .header {
     display: flex;
-    height: .86rem;
+    height: $headerHeight;
     background: $bgColor;
     color: #fff;
     .header-left {
@@ -40,7 +42,7 @@ export default {
       height: .62rem;
       line-height: .62rem;
       margin-top: .12rem;
-      margin-left: .2rem;
+      margin-left: .5rem;
       color: #ccc;
       padding-left: .2rem;
       .place {
@@ -53,8 +55,10 @@ export default {
     .header-right {
       display: flex;
       width: 1.24rem;
+      line-height: .86rem;
       align-items: center;
       justify-content: center;
+      color: #fff;
       .icon-belowarrow {
         font-size: 0.24rem;
         margin-left: .04rem;

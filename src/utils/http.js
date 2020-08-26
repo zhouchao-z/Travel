@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 function axiosGet (options) {
-  axios.get('/api/mock/index.json')
+  axios.get(options.url)
     .then((res) => {
       options.success(res);
     })

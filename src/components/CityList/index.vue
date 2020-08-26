@@ -1,113 +1,41 @@
 <template>
-  <div class="city-list">
+  <div class="city-list" ref="wrapper">
     <div class="content">
       <div class="area">
         <h2 class="title border-topbottom">当前城市</h2>
-        <ul class="hot-wrap">
+        <ul class="city-content">
           <li class="border-rightbottom">
-            <a href="#">北京</a>
+            <a href="#">{{ city }}</a>
           </li>
         </ul>
       </div>
+
       <div class="area">
         <h2 class="title border-topbottom">热门城市</h2>
-        <ul class="hot-wrap">
-          <li class="border-rightbottom">
-            <a href="#">北京</a>
-          </li>
-          <li class="border-rightbottom">
-            <a href="#">北京</a>
-          </li>
-          <li class="border-rightbottom">
-            <a href="#">北京</a>
-          </li>
-          <li class="border-rightbottom">
-            <a href="#">北京</a>
-          </li>
-          <li class="border-rightbottom">
-            <a href="#">北京</a>
+        <ul class="city-content">
+          <li 
+            class="border-rightbottom"
+            v-for="item of hotCities"
+            :key="item.id"
+          >
+            <a href="#">{{ item.name }}</a>
           </li>
         </ul>
       </div>
-
-      <div class="area">
-        <h2 class="title border-topbottom">A</h2>
-        <ul class="hot-wrap">
-          <li class="border-rightbottom">
-            <a href="#">北京</a>
-          </li>
-          <li class="border-rightbottom">
-            <a href="#">北京</a>
-          </li>
-          <li class="border-rightbottom">
-            <a href="#">北京</a>
-          </li>
-          <li class="border-rightbottom">
-            <a href="#">北京</a>
-          </li>
-          <li class="border-rightbottom">
-            <a href="#">北京</a>
-          </li>
-        </ul>
-      </div>
-      <div class="area">
-        <h2 class="title border-topbottom">B</h2>
-        <ul class="hot-wrap">
-          <li class="border-rightbottom">
-            <a href="#">北京</a>
-          </li>
-          <li class="border-rightbottom">
-            <a href="#">北京</a>
-          </li>
-          <li class="border-rightbottom">
-            <a href="#">北京</a>
-          </li>
-          <li class="border-rightbottom">
-            <a href="#">北京</a>
-          </li>
-          <li class="border-rightbottom">
-            <a href="#">北京</a>
-          </li>
-        </ul>
-      </div>
-
-      <div class="area">
-        <h2 class="title border-topbottom">B</h2>
-        <ul class="hot-wrap">
-          <li class="border-rightbottom">
-            <a href="#">北京</a>
-          </li>
-          <li class="border-rightbottom">
-            <a href="#">北京</a>
-          </li>
-          <li class="border-rightbottom">
-            <a href="#">北京</a>
-          </li>
-          <li class="border-rightbottom">
-            <a href="#">北京</a>
-          </li>
-          <li class="border-rightbottom">
-            <a href="#">北京</a>
-          </li>
-        </ul>
-      </div>
-      <div class="area">
-        <h2 class="title border-topbottom">B</h2>
-        <ul class="hot-wrap">
-          <li class="border-rightbottom">
-            <a href="#">北京</a>
-          </li>
-          <li class="border-rightbottom">
-            <a href="#">北京</a>
-          </li>
-          <li class="border-rightbottom">
-            <a href="#">北京</a>
-          </li>
-          <li class="border-rightbottom">
-            <a href="#">北京</a>
-          </li>
-          <li class="border-rightbottom">
-            <a href="#">北京</a>
+      
+      <div 
+        class="area"
+        v-for="(item, key) of cities"
+        :key="key"
+      >
+        <h2 class="title border-topbottom">{{ key }}</h2>
+        <ul class="city-content">
+          <li
+            class="border-rightbottom row4"
+            v-for="city of item"
+            :key="city.id"
+          >
+            <a href="#">{{ city.name }}</a>
           </li>
         </ul>
       </div>
@@ -116,8 +44,22 @@
 </template>
 
 <script>
+import BScroll from 'better-scroll';
 export default {
-  name: 'CityList'
+  name: 'CityList',
+  mounted () {
+    new BScroll(this.$refs.wrapper);
+  },
+  props: {
+    city: String,
+    hotCities: Array,
+    cities: Object
+  },
+  data () {
+    return {
+     
+    }
+  }
 }
 </script>
 
@@ -129,7 +71,6 @@ export default {
     left: 0;
     right: 0;
     bottom:0;
-    // background:red;
     .area {
     .title {
       line-height: .7rem;
@@ -145,7 +86,7 @@ export default {
       }
       
     }
-    .hot-wrap {
+    .city-content {
       display: flex;
       flex-wrap: wrap;
       .border-rightbottom {
@@ -162,9 +103,15 @@ export default {
         padding-bottom: 11.73%;
         text-align: center;
         line-height: .9rem;
+        // overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
         a {
           font-size: .28rem;
         }
+      }
+      li.row4 {
+        width: 25%;
       }
     }
   }

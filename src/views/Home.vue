@@ -15,6 +15,7 @@ import IndexIcons from '@/components/Icons';
 import IndexRecommend from '@/components/Recommend';
 import IndexWeekend from '@/components/Weekend';
 import { getIndexInfo } from '@/modles/index.js';
+
 export default {
   name: 'Home',
   components: {
@@ -29,7 +30,7 @@ export default {
       iconList: [],
       recommendList: [],
       swiperList: [],
-      weekendList: []
+      weekendList: [],
     }
   },
   mounted () {
@@ -45,10 +46,9 @@ export default {
         this.swiperList = res.swiperList;
         this.weekendList = res.weekendList;
       }
-     
     }
-    
-    
   }
 }
 </script>
+
+

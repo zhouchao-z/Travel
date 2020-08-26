@@ -1,8 +1,8 @@
 <template>
   <div class="wrapper">
-    <swiper :options="swiperOption">
+    <swiper :options="swiperOption" v-if="swiperShow">
       <swiper-slide v-for="item of swiperList" :key="item.id">
-        <img :src="item.imgSrc" class="swiper-img" />
+        <img :src="item.imgUrl" class="swiper-img" />
       </swiper-slide>
       <div class="swiper-pagination" slot="pagination"></div>
     </swiper>
@@ -12,26 +12,22 @@
 <script>
 export default {
   name: "IndexSwiper",
+  props: {
+    swiperList: Array
+  },
   data() {
     return {
       swiperOption: {
         pagination: '.swiper-pagination',
         loop: true
       },
-      swiperList: [
-        {
-          id: "0001",
-          imgSrc:
-            "https://dss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3936610868,4030009306&fm=26&gp=0.jpg",
-        },
-        {
-          id: "0002",
-          imgSrc:
-            "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2932263949,3539059350&fm=26&gp=0.jpg",
-        },
-      ],
     };
   },
+  computed: {
+    swiperShow () {
+      return this.swiperList.length
+    }
+  }
 };
 </script>
 

@@ -4,11 +4,11 @@
     <ul>
       <li 
         class="item"
-        v-for="item of recommend"
+        v-for="item of recommendList"
         :key="item.id"
       >
         <div class="item-img">
-          <img :src="item.imgSrc" />
+          <img :src="item.imgUrl" />
         </div>
         <div class="item-info">
           <div class="item-title">{{ item.title }}</div>
@@ -23,36 +23,10 @@
 <script>
 export default {
   name: 'IndexCommend',
-  data () {
-    return {
-      recommend: [
-        {
-          id: '0001',
-          imgSrc: "http://img1.qunarzz.com/sight/p0/1707/38/384c12c8a31259f7a3.img.jpg_200x200_7674a1c6.jpg" ,
-          title: '长沙乐水魔方水世界',
-          desc: '好好玩，好好玩'
-        },
-        {
-          id: '0002',
-          imgSrc: "http://img1.qunarzz.com/sight/p0/1707/38/384c12c8a31259f7a3.img.jpg_200x200_7674a1c6.jpg" ,
-          title: '长沙乐水魔方水世界',
-          desc: '好好玩，好好玩'
-        },
-        {
-          id: '0003',
-          imgSrc: "http://img1.qunarzz.com/sight/p0/1707/38/384c12c8a31259f7a3.img.jpg_200x200_7674a1c6.jpg" ,
-          title: '长沙乐水魔方水世界',
-          desc: '好好玩，好好玩'
-        },
-        {
-          id: '0004',
-          imgSrc: "http://img1.qunarzz.com/sight/p0/1707/38/384c12c8a31259f7a3.img.jpg_200x200_7674a1c6.jpg" ,
-          title: '长沙乐水魔方水世界',
-          desc: '好好玩，好好玩'
-        },
-      ]
-    }
+  props: {
+    recommendList: Array
   }
+  
 }
 </script>
 

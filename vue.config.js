@@ -9,17 +9,17 @@ module.exports = {
 		// 	config.resolve.alias.set('')
 		// },
 		
-		// proxy: {
-		// 	"/api": {
-		// 		target: 'http://v.juhe.cn',
-		// 		changeOrigin: true,
-		// 		ws: true,
-		// 		secure: true,
-		// 		pathRewrite: {
-		// 			"^/api": ""
-		// 		}
-		// 	}
-		// }
+		proxy: {
+			"/api": {
+				target: 'http://localhost:8080',
+				changeOrigin: true,
+				ws: true,
+				secure: true,
+				pathRewrite: {
+					"^/api": ""
+				}
+			}
+		}
 	},
 	configureWebpack: {
 		resolve: {

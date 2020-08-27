@@ -15,6 +15,7 @@
         <ul class="city-content">
           <li 
             class="border-rightbottom"
+            @click="handleCityClick(item.name)"
             v-for="item of hotCities"
             :key="item.id"
           >
@@ -33,6 +34,7 @@
         <ul class="city-content">
           <li
             class="border-rightbottom row4"
+            @click="handleCityClick(city.name)"
             v-for="city of item"
             :key="city.id"
           >
@@ -46,10 +48,19 @@
 
 <script>
 import BScroll from 'better-scroll';
+import { mapMutations } from 'vuex';
 export default {
   name: 'CityList',
   mounted () {
     this.scroll = new BScroll(this.$refs.wrapper);
+  },
+  methods: {
+    handleCityClick (city) {
+      this.changeCity(city);
+      this.$router.push('/')
+    },
+    ...mapMutations(['changeCity'])
+
   },
   props: {
     city: String,

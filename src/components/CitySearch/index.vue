@@ -16,6 +16,7 @@
           v-for="item of keywordList"
           :key="item.id"
           class="content border-bottom"
+          @click="handCityClick(item.name)"
         >
         {{ item.name }}
         </li>
@@ -32,6 +33,7 @@
 
 <script>
 import Bscroll from 'better-scroll';
+import { mapMutations } from 'vuex';
 export default {
   name: 'CitySearch',
   mounted () {
@@ -43,6 +45,13 @@ export default {
       keywordList: [],
       timer: null
     }
+  },
+  methods: {
+    handCityClick (city) {
+      this.changeCity(city);
+      this.$router.push('/')
+    },
+    ...mapMutations(['changeCity'])
   },
   props: {
     cities: Object

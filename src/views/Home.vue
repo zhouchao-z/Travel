@@ -15,6 +15,7 @@ import IndexIcons from '@/components/Icons';
 import IndexRecommend from '@/components/Recommend';
 import IndexWeekend from '@/components/Weekend';
 import { getIndexInfo } from '@/modles/index.js';
+import { mapState } from 'vuex';
 
 export default {
   name: 'Home',
@@ -31,10 +32,22 @@ export default {
       recommendList: [],
       swiperList: [],
       weekendList: [],
+      lastCity: ''
     }
+  },
+  computed: {
+    ...mapState(['city'])
   },
   mounted () {
     this.getIndexInfo();
+    this.lastCity = this.city;
+  },
+  activated () {
+    if(this.lastCity === this.city) {
+      return;
+    }
+    this.getIndexInfo();
+    this.lastCity = this.city;
   },
   methods: {
     async getIndexInfo () {

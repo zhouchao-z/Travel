@@ -3,6 +3,7 @@
     <li 
       v-for="(item, key) of cities" 
       :key="key"
+      @click="handleLetterClick"
     >
     {{ key }}
     </li>
@@ -14,6 +15,12 @@ export default {
   name: 'Aplhabet',
   props: {
     cities: Object
+  },
+  methods: {
+    handleLetterClick (e) {
+      const letter = e.target.innerText;
+      this.$emit('changeLetter', letter);
+    }
   }
 }
 </script>

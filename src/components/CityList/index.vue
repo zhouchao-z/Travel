@@ -27,6 +27,7 @@
         class="area"
         v-for="(item, key) of cities"
         :key="key"
+        :ref="key"
       >
         <h2 class="title border-topbottom">{{ key }}</h2>
         <ul class="city-content">
@@ -48,16 +49,18 @@ import BScroll from 'better-scroll';
 export default {
   name: 'CityList',
   mounted () {
-    new BScroll(this.$refs.wrapper);
+    this.scroll = new BScroll(this.$refs.wrapper);
   },
   props: {
     city: String,
     hotCities: Array,
-    cities: Object
+    cities: Object,
+    letter: String
   },
-  data () {
-    return {
-     
+  watch: {
+    letter () {
+      const element = this.$refs[this.letter][0];
+      this.scroll.scrollToElement(element);
     }
   }
 }

@@ -2,7 +2,9 @@
   <div class="recommend">
     <div class="title">推荐列表</div>
     <ul>
-      <li 
+      <router-link 
+        tag="li" 
+        :to="`/detail/${item.id}`"
         class="item"
         v-for="item of recommendList"
         :key="item.id"
@@ -15,7 +17,7 @@
           <div class="item-desc">{{ item.desc }}</div>
           <button class="item-btn">查看详情</button>
         </div>
-      </li>
+      </router-link>
     </ul>
   </div>
 </template>

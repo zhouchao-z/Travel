@@ -1,5 +1,6 @@
 const path = require('path');
 module.exports = {
+	publicPath: '/dist',
 	devServer: {
 		overlay: {
 			wainings: false,
@@ -8,7 +9,6 @@ module.exports = {
 		// chainWebpack: config => {
 		// 	config.resolve.alias.set('')
 		// },
-		
 		proxy: {
 			"/api": {
 				target: 'http://localhost:8080',

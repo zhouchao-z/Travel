@@ -44,7 +44,8 @@ export default {
       this.$router.push('/')
     },
     scroll () {
-      const top = document.documentElement.scrollTop;
+      const top = document.documentElement.scrollTop || 
+        document.body.scrollTop || window.pageYOffset;
       if(top > 30) {
         this.isShow = false;
         let opacity = top / 100;
@@ -62,6 +63,7 @@ export default {
   @import '~styles/varibel.scss';
   .detail-header {
     position: fixed;
+    z-index: 2;
     top: 0;
     left: 0;
     display: flex;

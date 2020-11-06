@@ -1,4 +1,4 @@
-//设置根元素标签的字体为 100px; 以iphone6为基准。
+//设置根元素标签的字体为 50px; 以iphone6为基准。
 document.documentElement.style.fontSize = document.documentElement.clientWidth / 7.5 + 'px';
 
 //取消touchmove的默认事件

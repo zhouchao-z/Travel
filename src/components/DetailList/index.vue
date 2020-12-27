@@ -8,7 +8,6 @@
         <span class="icon"></span>
         <div>{{ item.title }}</div>
       </div>
-
       <transition>
         <div class="chirdren" v-if="item.children" v-show="isShow">
           <detail-list 
